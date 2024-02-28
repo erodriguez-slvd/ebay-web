@@ -1,6 +1,7 @@
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+
 public class HomeTest extends BaseTest{
     @Test
     public void searchbarTest(){
@@ -14,4 +15,14 @@ public class HomeTest extends BaseTest{
     public void carouselTitlesTest(){
         Assert.assertTrue(home.areCarouselTitlesPresent());
     }
+    @Test
+    public void productDetailsTest(){
+        home.clickOnACarouselProduct();
+        home.switchToNewWindow();
+        product.isProductTitlePresent();
+        product.isProductPricePresent();
+        Assert.assertTrue(product.isBuyNowBtnPresent());
+    }
+
+
 }
