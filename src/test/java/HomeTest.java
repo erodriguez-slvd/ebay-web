@@ -1,4 +1,3 @@
-import org.solvd.HomePage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -10,5 +9,9 @@ public class HomeTest extends BaseTest{
         home.sendKeysToSearchbar(search);
         home.clickOnSearchBtn();
         Assert.assertTrue(home.resultsContainSearch(search));
+    }
+    @Test
+    public void carouselTitlesTest(){
+        Assert.assertTrue(home.areCarouselTitlesPresent());
     }
 }
