@@ -44,20 +44,17 @@ The project focuses on testing the eBay website, using core testing tools such a
 <!-- IMPLEMENTATION DETAILS -->
 ## Implementation details
 
-[//]: # (### LOGGER implementation)
+### Switch to new window implementation
 
-[//]: # (- Logging is a powerful aid for understanding and debugging a program’s run-time behavior. Logs capture and persist the important data and make it available for analysis at any point in time.)
+- Clicking a link which opens in a new window will focus the new window or tab on screen, but WebDriver will not know which window the Operating System considers active. To work with the new window you will need to switch to it.
 
-[//]: # (```)
-
-[//]: # (import org.slf4j.Logger;)
-
-[//]: # (import org.slf4j.LoggerFactory;)
-
-[//]: # ()
-[//]: # (private static final Logger LOGGER = LoggerFactory.getLogger&#40;MethodHandles.lookup&#40;&#41;.lookupClass&#40;&#41;&#41;;)
-
-[//]: # (```)
+```
+    Set<String> handles=driver.getWindowHandles();
+    Iterator it=handles.iterator();
+    String parent= (String) it.next();
+    String child= (String) it.next();
+    driver.switchTo().window(child);
+```
 
 <!-- USEFUL DOCUMENTATION -->
 ## Useful Documentation
