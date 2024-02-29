@@ -40,5 +40,4 @@ public class ProductDetailPage {
     public boolean isItemIdPresent(){
         return itemId.isDisplayed();
     }
-
 }
