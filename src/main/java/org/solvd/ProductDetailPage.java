@@ -18,6 +18,10 @@ public class ProductDetailPage {
     private WebElement buyNowBtn;
     @FindBy(css = "div[data-testid='x-atc-action'] a[data-testid='ux-call-to-action']")
     private WebElement addToCartBtn;
+    @FindBy(css = "button[id='TABS_SPR']")
+    private WebElement shippingBtn;
+    @FindBy(css = "div[class='ux-layout-section__textual-display ux-layout-section__textual-display--itemId']")
+    private WebElement itemId;
 
     public boolean isProductTitlePresent(){
         return productTitle.isDisplayed();
@@ -32,6 +36,9 @@ public class ProductDetailPage {
     public CartPage clickOnAddToCartBtn(){
         addToCartBtn.click();
         return PageFactory.initElements(driver, CartPage.class);
+    }
+    public boolean isItemIdPresent(){
+        return itemId.isDisplayed();
     }
 
 }

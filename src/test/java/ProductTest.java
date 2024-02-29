@@ -19,4 +19,10 @@ public class ProductTest extends BaseTest{
         cart.clickOnDeleteBtn();
         Assert.assertTrue(cart.isConfirmationMessagePresent());
     }
+    @Test
+    public void itemIdTest(){
+        ProductDetailPage product=home.clickOnACarouselProduct();
+        home.switchToNewWindow();
+        Assert.assertTrue(product.isItemIdPresent());
+    }
 }
