@@ -3,6 +3,7 @@ package org.solvd;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class ProductDetailPage {
     private WebDriver driver;
@@ -15,6 +16,8 @@ public class ProductDetailPage {
     private WebElement productPrice;
     @FindBy(css = "#binBtn_btn_1")
     private WebElement buyNowBtn;
+    @FindBy(css = "div[data-testid='x-atc-action'] a[data-testid='ux-call-to-action']")
+    private WebElement addToCartBtn;
 
     public boolean isProductTitlePresent(){
         return productTitle.isDisplayed();
@@ -24,6 +27,11 @@ public class ProductDetailPage {
     }
     public boolean isBuyNowBtnPresent(){
         return buyNowBtn.isDisplayed();
+    }
+
+    public CartPage clickOnAddToCartBtn(){
+        addToCartBtn.click();
+        return PageFactory.initElements(driver, CartPage.class);
     }
 
 }

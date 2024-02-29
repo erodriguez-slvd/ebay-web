@@ -24,7 +24,7 @@ public class HomePage {
     private List<WebElement> resultsList;
     @FindBy(xpath = "//div[@class='carousel vl-carousel carousel--slides carousel--peek']/descendant::h3")
     private List<WebElement> todayDealsTitlesCarousel;
-    @FindBy(xpath = "//button[contains(@id,'0-1-0-39-1-3-5-10-0') and contains(@id,'-2-') and contains(@aria-label,':')]")
+    @FindBy(xpath = "//div[@class='carousel vl-carousel carousel--slides carousel--peek']/descendant::button[@class='carousel__control carousel__control--next']")
     private WebElement carouselNextButton;
 
 
