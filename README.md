@@ -44,7 +44,7 @@ The project focuses on testing the eBay website, using core testing tools such a
 <!-- IMPLEMENTATION DETAILS -->
 ## Implementation details
 
-### Switch to new window implementation
+### Switch to new window
 
 - Clicking a link which opens in a new window will focus the new window or tab on screen, but WebDriver will not know which window the Operating System considers active. To work with the new window you will need to switch to it.
 
@@ -55,7 +55,15 @@ The project focuses on testing the eBay website, using core testing tools such a
     String child= (String) it.next();
     driver.switchTo().window(child);
 ```
+### WebDriverWait
 
+- Sometimes webpage takes more time than the speed of webdriver and in such cases we face Exceptions such as TimeoutException, NoSuchElementFoundException etc. Synchronization in selenium in achieved by using waits.
+- The WebDriver is directed to wait until a certain condition occurs before proceeding with executing the code.
+
+```
+    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+    wait.until(ExpectedConditions.elementToBeClickable(locator));
+```
 <!-- USEFUL DOCUMENTATION -->
 ## Useful Documentation
 

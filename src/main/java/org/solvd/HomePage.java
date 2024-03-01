@@ -61,7 +61,6 @@ public class HomePage extends CommonPage{
         //int index= (int) (Math.random()*todayDealsTitlesCarousel.size());
         int index=7;
         System.out.println(todayDealsTitlesCarousel.get(index).getText());
-        isElementClickable(todayDealsTitlesCarousel.get(index));
         clickOnElement(carouselNextButton);
         wait5Seconds();
         clickOnElement(todayDealsTitlesCarousel.get(index));
@@ -75,7 +74,6 @@ public class HomePage extends CommonPage{
         String parent= (String) it.next();
         String child= (String) it.next();
         driver.switchTo().window(child);
-
     }
 
 }
