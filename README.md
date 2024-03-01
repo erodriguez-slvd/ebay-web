@@ -64,10 +64,26 @@ The project focuses on testing the eBay website, using core testing tools such a
     WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
     wait.until(ExpectedConditions.elementToBeClickable(locator));
 ```
+### Selenium Grid
+
+- Selenium Grid allows the execution of WebDriver scripts on remote machines by routing commands sent by the client to remote browser instances. 
+- Grid aims to:
+  Provide an easy way to run tests in parallel on multiple machines
+  Allow testing on different browser versions
+  Enable cross-platform testing
+- When to use Grid? To run your tests in parallel, against different browser types, browser versions, operating systems. To reduce the time needed to execute a test suite 
+#### Setup
+1. Prerequisites: Java 11+, browser installed, browser driver downloaded.
+2. Download the Selenium Server jar file from the latest release.
+3. Start the Grid using the command: java -jar selenium-server-standalone-3.141.59.jar
+4. Point your WebDriver tests to http://localhost:4444
+5. Check running tests and available capabilities by opening your browser at http://localhost:4444
+
 <!-- USEFUL DOCUMENTATION -->
 ## Useful Documentation
 
 * [eBay](https://www.ebay.com)
 * [Selenium](https://www.selenium.dev/documentation/overview/)
+* [Selenium Grid](https://www.selenium.dev/documentation/grid/)
 * [Selenium Github Example](https://github.com/SeleniumHQ/seleniumhq.github.io/tree/trunk/examples)
 * [TestNG](https://testng.org/doc/documentation-main.html)
