@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.logging.Logger;
 
-public class HomePage{
+public class HomePage extends CommonPage{
     private WebDriver driver;
     public HomePage(WebDriver driver) {
         this.driver = driver;
@@ -29,13 +29,13 @@ public class HomePage{
 
 
     public void clickOnSearchbar(){
-        searchBar.click();
+        clickOnElement(searchBar);
     }
     public void sendKeysToSearchbar(String input){
-        searchBar.sendKeys(input);
+        sendKeysToElement(searchBar,input);
     }
     public void clickOnSearchBtn(){
-        searchButton.click();
+        clickOnElement(searchButton);
     }
 
     public boolean resultsContainSearch(String input){
@@ -61,26 +61,11 @@ public class HomePage{
         //int index= (int) (Math.random()*todayDealsTitlesCarousel.size());
         int index=7;
         System.out.println(todayDealsTitlesCarousel.get(index).getText());
-        carouselNextButton.click();
-        try {
-                Thread.sleep(5000);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-        todayDealsTitlesCarousel.get(index).click();
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-//        while (!todayDealsTitlesCarousel.get(index).isSelected()){
-//            carouselNextButton.click();
-//            try {
-//                Thread.sleep(5000);
-//            } catch (InterruptedException e) {
-//                throw new RuntimeException(e);
-//            }
-//        }
+        isElementClickable(todayDealsTitlesCarousel.get(index));
+        clickOnElement(carouselNextButton);
+        wait5Seconds();
+        clickOnElement(todayDealsTitlesCarousel.get(index));
+        wait5Seconds();
         return PageFactory.initElements(driver, ProductDetailPage.class);
     }
 
@@ -90,6 +75,7 @@ public class HomePage{
         String parent= (String) it.next();
         String child= (String) it.next();
         driver.switchTo().window(child);
+
     }
 
 }
