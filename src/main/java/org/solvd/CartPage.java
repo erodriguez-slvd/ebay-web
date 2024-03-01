@@ -1,9 +1,14 @@
 package org.solvd;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class CartPage {
     private WebDriver driver;
@@ -33,14 +38,12 @@ public class CartPage {
         return confirmationMessage.isDisplayed();
     }
     public void selectQuantityOptions(){
+        String option="2";
         quantityBtn.click();
         Select staticDropdownOptions =new Select(quantityBtn);
-        staticDropdownOptions.selectByValue("2");
-        try {
-            Thread.sleep(6000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+        staticDropdownOptions.selectByValue(option);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.textToBePresentInElementLocated(By.xpath("//span[contains(text(),'(2)')]"),option));
     }
     public String getProductPrice(){
         return productPrice.getText();

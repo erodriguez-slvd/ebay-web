@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.logging.Logger;
 
-public class HomePage {
+public class HomePage{
     private WebDriver driver;
     public HomePage(WebDriver driver) {
         this.driver = driver;
@@ -59,7 +59,7 @@ public class HomePage {
 
     public ProductDetailPage clickOnACarouselProduct(){
         //int index= (int) (Math.random()*todayDealsTitlesCarousel.size());
-        int index=6;
+        int index=7;
         System.out.println(todayDealsTitlesCarousel.get(index).getText());
         carouselNextButton.click();
         try {
