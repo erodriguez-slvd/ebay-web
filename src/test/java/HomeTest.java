@@ -1,7 +1,8 @@
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-
+@Listeners(BaseTest.class)
 public class HomeTest extends BaseTest{
     @Test
     public void searchbarTest(){

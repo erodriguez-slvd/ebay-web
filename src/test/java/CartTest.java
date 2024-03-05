@@ -1,8 +1,9 @@
 import org.solvd.CartPage;
 import org.solvd.ProductDetailPage;
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-
+@Listeners(BaseTest.class)
 public class CartTest extends BaseTest{
     @Test
     public void changeQuantityTest(){
