@@ -64,6 +64,16 @@ The project focuses on testing the eBay website, using core testing tools such a
     WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
     wait.until(ExpectedConditions.elementToBeClickable(locator));
 ```
+### Screenshot with Selenium and TestNG Listeners
+
+- To capture screenshots in Selenium, one has to utilize the method TakesScreenshot. This notifies WebDriver that it should take a screenshot in Selenium and store it.
+1. Add **commons-io** dependency to the pom.
+2. Create a class that implements ITestListener. In this project it is done in BaseTest.
+3. Override the **onTestFailure** method.
+4. Add the code to take a screenshot with this method.
+5. Get the Test method name and take a screenshot with the test name. Then place it in the desired destination folder.
+6. Finally, add the annotation @Listeners(BaseTest.class) to the Test classes.
+
 ### Selenium Grid
 
 - Selenium Grid allows the execution of WebDriver scripts on remote machines by routing commands sent by the client to remote browser instances. 
@@ -75,9 +85,9 @@ The project focuses on testing the eBay website, using core testing tools such a
 #### Setup
 1. Prerequisites: Java 11+, browser installed, browser driver downloaded.
 2. Download the Selenium Server jar file from the latest release.
-3. Start the Grid using the command: java -jar selenium-server-standalone-3.141.59.jar
-4. Point your WebDriver tests to http://localhost:4444
-5. Check running tests and available capabilities by opening your browser at http://localhost:4444
+3. Start the Grid using the command: java -jar selenium-server-<version>.jar standalone
+4. Verify the hub is running opening your browser in http://localhost:4444/.
+5. Point your WebDriver tests to http://localhost:4444
 
 <!-- USEFUL DOCUMENTATION -->
 ## Useful Documentation
@@ -85,5 +95,6 @@ The project focuses on testing the eBay website, using core testing tools such a
 * [eBay](https://www.ebay.com)
 * [Selenium](https://www.selenium.dev/documentation/overview/)
 * [Selenium Grid](https://www.selenium.dev/documentation/grid/)
+* [Selenium Grid Setup Tutorial](https://medium.com/maestral-solutions/selenium-grid-setup-the-complete-guide-cf000a2be50f)
 * [Selenium Github Example](https://github.com/SeleniumHQ/seleniumhq.github.io/tree/trunk/examples)
 * [TestNG](https://testng.org/doc/documentation-main.html)
